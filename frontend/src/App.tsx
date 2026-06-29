@@ -1,9 +1,8 @@
+import { RouterProvider } from "react-router-dom";
+import { router } from "./app/router";
+
 function App() {
-  return (
-    <main className="flex min-h-screen items-center justify-center bg-black">
-      <h1 className="text-6xl font-bold text-white">Tailwind Working 🚀</h1>
-    </main>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

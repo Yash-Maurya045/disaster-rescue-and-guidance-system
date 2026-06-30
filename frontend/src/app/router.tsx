@@ -6,35 +6,37 @@ import MapPage from "@/pages/MapPage";
 import EmergencyPage from "@/pages/EmergencyPage";
 import ProfilePage from "@/pages/ProfilePage";
 import NotFoundPage from "@/pages/NotFoundPage";
+import AppLayout from "@/layouts/AppLayout";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <HomePage />,
+    element: <AppLayout />,
+    children: [
+      {
+        index: true,
+        element: <HomePage />,
+      },
+      {
+        path: "alerts",
+        element: <AlertsPage />,
+      },
+      {
+        path: "map",
+        element: <MapPage />,
+      },
+      {
+        path: "emergency",
+        element: <EmergencyPage />,
+      },
+      {
+        path: "profile",
+        element: <ProfilePage />,
+      },
+    ],
   },
   {
-    path: "/alerts",
-    element: <AlertsPage />,
-  },
-  {
-    path: "/map",
-    element: <MapPage />,
-  },
-
-  {
-    path: "/emergency",
-    element: <EmergencyPage />,
-  },
-  {
-    path: "/profile",
-    element: <ProfilePage />,
-  },
-  {
-    path: "/profile",
-    element: <ProfilePage />,
-  },
-  {
-    path: "/*",
+    path: "*",
     element: <NotFoundPage />,
   },
 ]);
